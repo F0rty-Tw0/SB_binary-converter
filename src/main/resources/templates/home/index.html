@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Binary to Decimal | Decimal to Binary</title>
+    <meta name="description" content="Binary to Decimal | Decimal to Binary">
+    <meta name="author" content="Art">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <form action="#" th:action="@{/}" th:object="${userInput}" method="post">
+            <h1>Convert From Binary To Decimal</h1>
+            <label>Binary Value: </label>
+            <input min="0" max="1111111111" required th:field="*{bin}" type="number" placeholder="1010001">
+            <label>Decimal Output: </label>
+            <h1 th:if="${userInput.getBin() == 0}" th:text="0"></h1>
+            <h1 th:if="${userInput.getBin() > 0}" th:text="${userInput.calcDec()}"></h1>
+            <button id="btnintext" type="submit">Convert <i class="fas fa-retweet"></i></button>
+        </form>
+    </div>
+    <div id="container">
+        <form action="#" th:action="@{/}" th:object="${userInput}" method="post">
+            <h1>Convert From Decimal To Binary</h1>
+            <label>Decimal Value: </label>
+            <input min="-511" max="1023" required th:field="*{dec}" type="number" placeholder="42">
+            <label>Binary Output: </label>
+            <h1 th:text="${userInput.calcBothBin()}"></h1>
+            <button id="btnintext" type="submit">Convert <i class="fas fa-retweet"></i></button>
+        </form>
+    </div>
+</body>
+
+</html>
